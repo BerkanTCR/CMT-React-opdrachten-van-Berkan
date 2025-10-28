@@ -1,5 +1,5 @@
 import Book from './Book'
-const BookList = ({}) => {
+const BookList = () => {
     return (
 
     <section className="booklistsection">
@@ -12,3 +12,4 @@ const BookList = ({}) => {
 };
 
 export default BookList;
+
