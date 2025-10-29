@@ -22,3 +22,8 @@ align-items: center;
 .booksection img {
     width: 100%;
 }
+
+.Layout {
+    margin: 0 auto;
+    width: 80vw;
+}
