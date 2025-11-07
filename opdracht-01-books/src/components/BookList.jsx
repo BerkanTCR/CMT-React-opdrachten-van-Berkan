@@ -1,19 +1,27 @@
 import Book from './Book'
 import {  useState  } from "react";
 const BookList = () => {
-    const [users, setUsers] = useState ([
-        { title: "Harry Potter", author: "Lukasz", },
-        { title: "Fantasia VI", author: "Berkan", },
-        { title: "Canon van Geneeskunde", author: "Ibn Sina", }
+    const [books, setBooks] = useState ([
+        { title: "Harry Potter", author: "Lukasz", image:"./images/book-1.png"},
+        { title: "Fantasia VI", author: "Berkan", image:"./images/book-2.png"},
+        { title: "Canon van Geneeskunde", author: "Ibn Sina", image:"./images/canon.png"},
+         { title: "Canon 2", author: "Ibn Sina", image:"./images/canon.png"}
     ]);
 
     return (
 
     <section className="booklistsection">
-        <Book title='Harry Potter' author='Lukasz' image="./images/book-1.png"/>
-        <Book title='Fantasia VI' author='Berkan' image="./images/book-2.png"/>
-        <Book title='Canon van Geneeskunde' author='Ibn Sina' image="./images/canon.png"/>
+        {books.map(book => (
+       
+        <Book title={book.title} author={book.author} image={book.image}/>
+      ))}
+        
+
+  
     </section>
+
+
+
 
 
 
