@@ -6,7 +6,7 @@ const Book = ({image, title, author}) => {
         function verhoogTeller () {
             setAantalKeerGelezen(aantalKeerGelezen + 1)
         }
-    
+ 
     return (
     <>
         <h1 className="bookteller">Dit boek is zo vaak gelezen: {aantalKeerGelezen}!</h1>

@@ -1,4 +1,5 @@
 import Book from './Book'
+import BookCounter from './Bookcounter'
 import {  useState  } from "react";
 const BookList = () => {
     const [books, setBooks] = useState ([
@@ -11,6 +12,7 @@ const BookList = () => {
     return (
 
     <section className="booklistsection">
+      <BookCounter aantal={books.length}/>
         {books.map(book => (
        
         <Book title={book.title} author={book.author} image={book.image}/>
