@@ -1,16 +1,21 @@
 import Book from './Book'
 import BookCounter from './Bookcounter'
-import {  useState  } from "react";
+import { useState } from "react";
 const BookList = () => {
-    const [books, setBooks] = useState ([
-        { title: "Harry Potter", author: "Lukasz", image:"./images/book-1.png"},
-        { title: "Fantasia VI", author: "Berkan", image:"./images/book-2.png"},
-        { title: "Canon van Geneeskunde", author: "Ibn Sina", image:"./images/canon.png"},
-         { title: "Canon 2", author: "Ibn Sina", image:"./images/canon.png"}
-    ]);
+  const [books, setBooks] = useState(Bookdata)
+  const [searchInput, setSearchInput] = useState = ("")
+  return (
 
-    return (
-
+    <div className='search'>
+      <input 
+        type='text'
+        placeholder='Zoek een titel op'
+        onChange={handleChange}
+        value={searchInput}
+        name='search'
+      />
+    </div>
+    
     <section className="booklistsection">
       <BookCounter aantal={books.length}/>
         {books.map(book => (
@@ -27,7 +32,7 @@ const BookList = () => {
 
 
 
-    )
+  )
 };
 
 export default BookList;
