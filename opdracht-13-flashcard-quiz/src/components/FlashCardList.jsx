@@ -5,7 +5,6 @@ const FlashCardList = () => {
         <>
         <section className="space-y-4">
             <h1 className="text-center text-xl text-white font-bold">FlashCard List</h1>
-          <FlashCard />
           {data.map(d => (
             <FlashCard question={d.question} answer={d.answer} />
           ))}

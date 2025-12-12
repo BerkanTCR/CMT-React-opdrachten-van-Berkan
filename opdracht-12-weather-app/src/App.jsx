@@ -1,17 +1,16 @@
 import './App.css'
 import { useState, useEffect } from 'react';
-import WeatherInfo from './WeatherInfo';
-
+import WeatherInfo from './components/WeatherInfo';
+ 
 function App() {
-
-  const [weather, setWeather] = useState();
-  const [city, setCity] = useState('rome')
-  const [input, setInput] = useState('')
-
-  const apiKey = '9f176e85ba960604da0c96dc51255762';
-
+ const [weather, setWeather] = useState();
+ const [city, setCity] = useState('oslo')
+ const [input, setInput] = useState('')
+ 
+ const apiKey = "653685a1a12b47f3cb252e46696f9f24"
+ 
   useEffect(() => {
-    // Fetch functie binnen useEffect
+   
     const fetchWeather = async () => {
       try {
         const response = await fetch(
@@ -21,42 +20,32 @@ function App() {
         console.log(weatherData)
         setWeather(weatherData);
       } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching weather:', error);
       }
     };
-
+ 
     fetchWeather();
-  }, []); // Lege array = run eenmalig bij mount
-
-  const handleSearch = (e) => {
+  }, [city]);
+  function inputHandler(e) {
     e.preventDefault();
-    setCity(e.target.value);
-  };
-
-  
+    setCity(input);
+  }
   return (
     <div>
-
-      <div>
-        <input
-          type="text"
-          placeholder="Zoek een stad..."
-          value={city}
-          
-          onClick={handleSearch}
-          name='search'
-        />
-        <button onClick={handleSearch}>Zoeken</button>
-      </div>
-
+      <input type="text" onChange={(e) => setInput(e.target.value)} />
+      <button onClick={inputHandler}>Zoek een stad...</button>
       {weather ? (
-        <WeatherInfo city={weather.name} icon={weather.weather[0].icon} temp={weather.main.temp} feelslike={weather.main.feels_like} humidity={weather.main.humidity} windspeed={weather.wind.speed} />
-      ) : (
-        <p>Het weer is aan het laden</p>
-      )
-      }
-    </div >
-  );
-}
-
+       <WeatherInfo city={weather.name} temp={weather.main.temp} feels={weather.main.feels_like} humidity={weather.main.humidity} wind={weather.wind.speed}  />
+ 
+  ) : (
+         <p>Het weer is aan het laden</p>
+      )}
+    </div>
+ 
+    );
+ 
+};
+ 
+ 
 export default App
+ 

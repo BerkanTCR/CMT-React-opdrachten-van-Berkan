@@ -1,8 +1,4 @@
-import { useState } from "react";
-const CreateMessage = () => {
-
-    const [textInput, setTextInput] = useState('');
-    const [message, setMessage] = useState([]);
+const CreateMessage = ({textInput, setTextInput, message, setMessage}) => {
 
     const userInputHandler = (e) => {
         setTextInput(e.target.value)
@@ -10,10 +6,10 @@ const CreateMessage = () => {
     }
 
     const submitMessageHandler = (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    setMessage([...message, textInput])
-    setTextInput('');
+        setMessage([...message, textInput])
+        setTextInput('');
 
     }
 
