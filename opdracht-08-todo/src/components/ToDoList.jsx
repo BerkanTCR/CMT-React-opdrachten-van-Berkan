@@ -1,10 +1,9 @@
 import ToDoItem from "./ToDoItem"
-const ToDoList = ({ todoitem, description }) => {
+const ToDoList = ({  toDoItem }) => {
     return (
         <>
-            <ToDoItem todoitem={todoitem} description={description} />
-            <ToDoItem todoitem={todoitem} description={description} />
-            <ToDoItem todoitem={todoitem} description={description} />
+
+            <ToDoItem  toDoItem={toDoItem} />
 
 
         </>

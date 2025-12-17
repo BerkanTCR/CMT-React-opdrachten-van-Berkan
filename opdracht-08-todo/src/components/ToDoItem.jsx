@@ -1,8 +1,12 @@
-const ToDoItem = ({ todoitem, description }) => {
+const ToDoItem = ({ toDoItem }) => {
+
+    console.log(toDoItem);
     return (
         <>
-            <h2>{todoitem}</h2>
-            <p>{description}</p>
+            {toDoItem.map((item, index) => (
+                <p key={index}>{item}</p>
+            ))}
+
         </>
     );
 }

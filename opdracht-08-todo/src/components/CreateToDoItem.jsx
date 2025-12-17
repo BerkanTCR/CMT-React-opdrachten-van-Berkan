@@ -1,4 +1,4 @@
-const CreateToDoItem = ({textInput, setTextInput, description, setDescription}) => {
+const CreateToDoItem = ({textInput, setTextInput, toDoItem, setToDoItem}) => {
 
 
     const userInputHandler = (e) => {
@@ -7,7 +7,7 @@ const CreateToDoItem = ({textInput, setTextInput, description, setDescription}) 
 
     const submitDescriptionHandler = (e) => {
         e.preventDefault()
-        setDescription([...description, textInput])
+        setToDoItem([...toDoItem, textInput])
         setTextInput('')
     }
 
@@ -19,7 +19,7 @@ const CreateToDoItem = ({textInput, setTextInput, description, setDescription}) 
                 </br>
                 <br>
                 </br>
-                <button onClick={submitDescriptionHandler}>Toevoegen</button>
+                <button onClick={submitDescriptionHandler}>To-Do Toevoegen</button>
             </form>
         </>
     );
