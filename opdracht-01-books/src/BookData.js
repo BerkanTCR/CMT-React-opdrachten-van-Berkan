@@ -24,7 +24,6 @@ const books = [
         image: "./images/canon.png"
     }
 
-
-
-
 ]
+
+export default books;

@@ -1,39 +1,44 @@
 import Book from './Book'
 import BookCounter from './Bookcounter'
 import { useState } from "react";
+import BookData from "../BookData.js"
+
 const BookList = () => {
-  const [books, setBooks] = useState(Bookdata)
-  const [searchInput, setSearchInput] = useState = ("")
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const filteredBooks = BookData.filter(book =>
+    book.title.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
   return (
+    <>
+      <div className='search'>
+        <input
+          type='text'
+          placeholder='Zoek een titel op'
+          onChange={handleChange}
+          value={searchInput}
+        />
+      </div>
 
-    <div className='search'>
-      <input 
-        type='text'
-        placeholder='Zoek een titel op'
-        onChange={handleChange}
-        value={searchInput}
-        name='search'
-      />
-    </div>
-    
-    <section className="booklistsection">
-      <BookCounter aantal={books.length}/>
-        {books.map(book => (
-       
-        <Book title={book.title} author={book.author} image={book.image}/>
-      ))}
-        
+      <section className="booklistsection">
+        <BookCounter aantal={filteredBooks.length} />
 
-  
-    </section>
-
-
-
-
-
-
-  )
+        {filteredBooks.map(book => (
+          <Book
+            key={book.title}
+            title={book.title}
+            author={book.author}
+            image={book.image}
+          />
+        ))}
+      </section>
+    </>
+  );
 };
 
 export default BookList;
-
